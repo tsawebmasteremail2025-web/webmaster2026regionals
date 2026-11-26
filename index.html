@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pathwise AI | Learn AI the Smart, Ethical Way</title>
+  <meta name="description" content="Pathwise AI is a free, interactive AI learning portal for high school students. Learn how AI works, master practical AI tools, and use AI ethically, while earning XP and badges.">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>try{var t=localStorage.getItem("pathwise.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+</head>
+<body data-page="home">
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Free AI learning portal · Grades 9–12</p>
+        <h1>Don't just use AI.<br><span class="grad-text">Understand it.</span></h1>
+        <p class="lead">Pathwise AI takes you from "what even is a neural network?" to using AI tools like a pro, honestly and responsibly. Learn by doing, earn XP, unlock badges, and track every step.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="module.html?m=foundations" id="hero-cta">
+            <span id="hero-cta-text">Start learning free</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="learn.html">Explore modules</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>3</strong><span>learning modules</span></div>
+          <div><strong>12</strong><span>interactive lessons</span></div>
+          <div><strong>6</strong><span>hands-on labs</span></div>
+          <div><strong>13</strong><span>badges to earn</span></div>
+        </div>
+      </div>
+      <canvas id="neural-canvas" role="img" aria-label="Animated illustration of a neural network with signals moving between layers of nodes"></canvas>
+    </div>
+  </section>
+
+  <!-- PROGRESS SNAPSHOT (returning learners) -->
+  <section class="container" id="snapshot" hidden>
+    <div class="card" style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between">
+      <div>
+        <p class="eyebrow" style="margin-bottom:.3rem">Welcome back</p>
+        <h2 style="font-size:1.5rem;margin:0" id="snap-title">Level 1 · Curious Beginner</h2>
+      </div>
+      <div style="flex:1;min-width:220px;max-width:420px">
+        <div class="progress-label"><span>Overall progress</span><span id="snap-pct">0%</span></div>
+        <div class="progress grad"><span id="snap-bar"></span></div>
+      </div>
+      <a class="btn btn-primary" href="dashboard.html">Open dashboard</a>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="section" aria-labelledby="mods-h">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:2.5rem">
+        <p class="eyebrow">Your learning path</p>
+        <h2 id="mods-h">Three modules. One complete picture of AI.</h2>
+        <p class="lead">Each module mixes short lessons, interactive labs, and a quiz. Go in order or jump to what you need.</p>
+      </div>
+      <div class="grid grid-3" id="module-cards"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" style="background:var(--bg-elev);border-block:1px solid var(--surface-line)" aria-labelledby="how-h">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:2.5rem">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-h">Learning that feels like leveling up</h2>
+      </div>
+      <div class="grid grid-4 steps">
+        <div class="step reveal"><h3>Learn</h3><p class="muted">Bite-sized lessons (6–8 minutes) written for high schoolers, with diagrams and real examples.</p></div>
+        <div class="step reveal"><h3>Do</h3><p class="muted">Tune a neuron, be a language model, build prompts, and catch AI hallucinations in hands-on labs.</p></div>
+        <div class="step reveal"><h3>Prove it</h3><p class="muted">Pass each module quiz with instant feedback and explanations for every answer.</p></div>
+        <div class="step reveal"><h3>Level up</h3><p class="muted">Earn XP, climb 8 levels, collect 13 badges, and download your completion certificate.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" aria-labelledby="feat-h">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:center;gap:3rem">
+        <div class="reveal">
+          <p class="eyebrow">Built for students</p>
+          <h2 id="feat-h">AI skills your future self will thank you for</h2>
+          <p class="lead">AI is already in your classes, your apps, and the jobs you'll apply for. Pathwise teaches the parts that matter: how it works, how to use it well, and where the lines are.</p>
+          <a class="btn btn-ghost" href="about.html">Why we built Pathwise</a>
+        </div>
+        <div class="grid grid-2">
+          <div class="card card-hover reveal" style="--accent:var(--mod-foundations)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+            <h3>Demystified</h3><p class="muted">No jargon walls. Every concept has a plain-English explanation and a visual.</p></div>
+          <div class="card card-hover reveal" style="--accent:var(--mod-tools)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
+            <h3>Practical</h3><p class="muted">Prompt templates and study techniques you can use in class tomorrow.</p></div>
+          <div class="card card-hover reveal" style="--accent:var(--mod-ethics)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>Ethical</h3><p class="muted">Academic integrity, bias, privacy, and deepfakes, through real scenarios.</p></div>
+          <div class="card card-hover reveal" style="--accent:var(--ok)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3>Private</h3><p class="muted">No sign-up. Your progress stays in your browser and is never sent anywhere.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container section-tight" style="padding-bottom:80px">
+    <div class="cta-band reveal">
+      <p class="eyebrow" style="justify-content:center">Ready?</p>
+      <h2>Your first badge is 6 minutes away.</h2>
+      <p class="lead">Start with "What Is AI, Really?" and earn <strong>First Steps</strong> the moment you finish.</p>
+      <a class="btn btn-primary" href="module.html?m=foundations#lesson-1">Start Lesson 1</a>
+    </div>
+  </section>
+</main>
+
+<script src="js/progress.js"></script>
+<script src="js/modules-data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/cards.js"></script>
+<script>
+  (function () {
+    var o = Progress.overall(), L = Progress.levelInfo();
+    if (L.xp > 0) {
+      document.getElementById("snapshot").hidden = false;
+      document.getElementById("snap-title").textContent = "Level " + L.level + " · " + L.name;
+      document.getElementById("snap-pct").textContent = o.pct + "%";
+      requestAnimationFrame(function () { document.getElementById("snap-bar").style.width = o.pct + "%"; });
+      document.getElementById("hero-cta-text").textContent = "Continue learning";
+      var next = ["foundations", "tools", "ethics"].find(function (m) { return !Progress.moduleProgress(m).complete; });
+      document.getElementById("hero-cta").href = next ? "module.html?m=" + next : "dashboard.html";
+    }
+    ModuleCards.render(document.getElementById("module-cards"));
+  })();
+</script>
+</body>
+</html>

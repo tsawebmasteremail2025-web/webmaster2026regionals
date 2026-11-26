@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Glossary | Pathwise AI</title>
+  <meta name="description" content="A searchable glossary of AI terms for high school students, from neural networks and tokens to hallucinations and deepfakes.">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>try{var t=localStorage.getItem("pathwise.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+</head>
+<body data-page="glossary">
+<main id="main">
+  <header class="page-head">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Glossary</span></nav>
+      <p class="eyebrow">Glossary</p>
+      <h1>Speak fluent AI</h1>
+      <p class="lead">Every key term from the modules, in plain English. Mark 10 terms as learned to unlock the <strong>Word Nerd</strong> badge.</p>
+    </div>
+  </header>
+  <section class="container section-tight" style="padding-top:10px">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <label for="g-search" class="visually-hidden">Search terms</label>
+      <input id="g-search" type="search" placeholder="Search terms, e.g. token, bias, deepfake…" autocomplete="off">
+    </div>
+    <div class="filter-row" role="group" aria-label="Filter by module">
+      <button type="button" class="choice" data-cat="all" aria-pressed="true">All</button>
+      <button type="button" class="choice" data-cat="foundations" aria-pressed="false">Foundations</button>
+      <button type="button" class="choice" data-cat="tools" aria-pressed="false">Tools &amp; Techniques</button>
+      <button type="button" class="choice" data-cat="ethics" aria-pressed="false">Ethics</button>
+    </div>
+    <p class="muted" id="g-count" aria-live="polite"></p>
+    <div class="grid grid-3" id="terms"></div>
+  </section>
+</main>
+<script src="js/progress.js"></script>
+<script src="js/app.js"></script>
+<script src="js/glossary.js"></script>
+</body>
+</html>

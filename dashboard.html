@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Dashboard | Pathwise AI</title>
+  <meta name="description" content="Track your Pathwise AI progress: XP, level, badges, module completion, streaks, and your completion certificate.">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>try{var t=localStorage.getItem("pathwise.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+</head>
+<body data-page="dashboard">
+<main id="main">
+  <header class="page-head no-print">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Dashboard</span></nav>
+      <p class="eyebrow">Progress dashboard</p>
+      <h1 id="dash-greet">Your learning journey</h1>
+      <p class="lead">Everything you've earned, in one place. Progress is saved automatically in this browser.</p>
+    </div>
+  </header>
+
+  <div class="container no-print" style="display:grid;gap:1.25rem;padding-bottom:20px">
+    <!-- Level + stats -->
+    <section class="dash-top" aria-label="Level and stats">
+      <div class="card level-card">
+        <div class="ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c6cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+            <circle class="ring-track" cx="60" cy="60" r="52" fill="none" stroke-width="10"/>
+            <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+          </svg>
+          <div class="ring-center"><div><span>Level</span><strong id="d-level">1</strong></div></div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <h2 style="font-size:1.7rem;margin-bottom:.2rem" id="d-lname">Curious Beginner</h2>
+          <p class="muted" id="d-next" style="margin-bottom:1rem"></p>
+          <div class="progress-label"><span id="d-xp">0 XP</span><span id="d-pct">0%</span></div>
+          <div class="progress grad" role="progressbar" aria-label="Progress to next level" aria-valuemin="0" aria-valuemax="100" id="d-lvlbar-wrap"><span id="d-lvlbar"></span></div>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><strong id="s-lessons">0/12</strong><span>Lessons completed</span></div>
+        <div class="stat"><strong id="s-badges">0/13</strong><span>Badges earned</span></div>
+        <div class="stat"><strong id="s-streak">0 🔥</strong><span>Day streak</span><div class="streak-days" id="streak-days" aria-hidden="true"></div></div>
+        <div class="stat"><strong id="s-quiz">–</strong><span>Average best quiz score</span></div>
+      </div>
+    </section>
+
+    <!-- Modules -->
+    <section class="card" aria-labelledby="mp-h">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+        <h2 id="mp-h" style="font-size:1.4rem;margin:0">Module progress</h2>
+        <span class="pill" id="overall-pill">0% overall</span>
+      </div>
+      <div class="grid grid-3" id="mod-progress"></div>
+    </section>
+
+    <!-- Badges -->
+    <section class="card" aria-labelledby="b-h">
+      <h2 id="b-h" style="font-size:1.4rem">Badge collection</h2>
+      <p class="muted">Locked badges show what to do next. Each badge you unlock adds +25 XP.</p>
+      <div class="badge-grid" id="badges"></div>
+    </section>
+
+    <div class="grid grid-2">
+      <!-- Activity -->
+      <section class="card" aria-labelledby="a-h">
+        <h2 id="a-h" style="font-size:1.4rem">Recent activity</h2>
+        <ul class="activity-log" id="log"></ul>
+      </section>
+      <!-- Data -->
+      <section class="card" aria-labelledby="data-h">
+        <h2 id="data-h" style="font-size:1.4rem">Your data</h2>
+        <p class="muted">Pathwise has no accounts. To move progress to another device or share it with a teacher, copy your progress code.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <button type="button" class="btn btn-ghost btn-sm" id="export">Copy progress code</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="import">Import code</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="reset" style="color:var(--bad)">Reset progress</button>
+        </div>
+        <div class="field" id="import-box" hidden style="margin-top:1rem">
+          <label for="import-code">Paste a progress code</label>
+          <textarea id="import-code"></textarea>
+          <button type="button" class="btn btn-primary btn-sm" id="import-go" style="justify-self:start">Load progress</button>
+        </div>
+        <p class="feedback" id="data-fb" aria-live="polite"></p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Certificate -->
+  <section class="container section-tight" aria-labelledby="cert-h">
+    <div class="certificate" id="cert">
+      <p class="eyebrow" style="justify-content:center">Certificate of Completion</p>
+      <h2 id="cert-h">Pathwise AI · AI Literacy Program</h2>
+      <p class="muted" style="margin:0">This certifies that</p>
+      <div class="cert-name grad-text" id="cert-name">Your Name</div>
+      <p class="muted" style="max-width:56ch;margin:0 auto 1rem">has completed all three modules (AI Foundations, AI Tools &amp; Techniques, and Ethical AI Use), demonstrating an understanding of how AI works and how to use it effectively and responsibly.</p>
+      <p style="font-family:var(--font-mono);font-size:.9rem" id="cert-meta"></p>
+      <div class="no-print" id="cert-controls" style="margin-top:1.5rem"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/progress.js"></script>
+<script src="js/modules-data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

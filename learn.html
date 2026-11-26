@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn | Pathwise AI</title>
+  <meta name="description" content="Browse Pathwise AI's three learning modules: AI Foundations, AI Tools & Techniques, and Ethical AI Use.">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>try{var t=localStorage.getItem("pathwise.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+</head>
+<body data-page="learn">
+<main id="main">
+  <header class="page-head">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Learn</span></nav>
+      <p class="eyebrow">Learning modules</p>
+      <h1>Choose your path</h1>
+      <p class="lead">Each module has four short lessons, hands-on labs, and a quiz. Finish all three to become an <strong>AI Graduate</strong> and earn your certificate.</p>
+      <div style="max-width:520px;margin-top:1.5rem">
+        <div class="progress-label"><span>Your overall progress</span><span id="ov-pct">0%</span></div>
+        <div class="progress grad"><span id="ov-bar"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="container section-tight">
+    <div class="grid grid-3" id="module-cards"></div>
+  </section>
+
+  <section class="container section-tight" aria-labelledby="xp-h">
+    <div class="grid grid-2" style="gap:1.25rem">
+      <div class="card">
+        <h2 id="xp-h" style="font-size:1.4rem">How you earn XP</h2>
+        <div class="table-wrap"><table class="compare-table">
+          <thead><tr><th scope="col">Action</th><th scope="col">XP</th></tr></thead>
+          <tbody>
+            <tr><td>Complete a lesson</td><td><strong>+50</strong></td></tr>
+            <tr><td>Finish a hands-on lab</td><td><strong>+40</strong></td></tr>
+            <tr><td>Each new correct quiz answer (beat your best)</td><td><strong>+20</strong></td></tr>
+            <tr><td>First perfect quiz score</td><td><strong>+50</strong></td></tr>
+            <tr><td>Complete a module</td><td><strong>+100</strong></td></tr>
+            <tr><td>Unlock a badge</td><td><strong>+25</strong></td></tr>
+            <tr><td>Learn a glossary term</td><td><strong>+5</strong></td></tr>
+          </tbody></table></div>
+      </div>
+      <div class="card">
+        <h2 style="font-size:1.4rem">8 levels to climb</h2>
+        <ol id="level-list" style="padding-left:1.2rem;margin:0;display:grid;gap:.35rem"></ol>
+        <a class="btn btn-ghost btn-sm" href="dashboard.html" style="margin-top:1.2rem">See your badges →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section-tight" id="educators" aria-labelledby="edu-h">
+    <div class="cta-band" style="text-align:left">
+      <p class="eyebrow">For educators</p>
+      <h2 id="edu-h">Use Pathwise in your classroom</h2>
+      <div class="grid grid-3" style="margin-top:1.2rem">
+        <div><h3>Standards-friendly</h3><p class="muted">Modules match common AI-literacy goals: how AI works, using it effectively, and evaluating its impact.</p></div>
+        <div><h3>Self-paced</h3><p class="muted">Each lesson is 6–8 minutes, so it fits a bell-ringer, a sub plan, or a full class period.</p></div>
+        <div><h3>Shareable progress</h3><p class="muted">Students can export a progress code from their dashboard or print a completion certificate to turn in.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/progress.js"></script>
+<script src="js/modules-data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/cards.js"></script>
+<script>
+  (function () {
+    ModuleCards.render(document.getElementById("module-cards"));
+    var o = Progress.overall();
+    document.getElementById("ov-pct").textContent = o.pct + "%";
+    requestAnimationFrame(function () { document.getElementById("ov-bar").style.width = o.pct + "%"; });
+    var cur = Progress.levelInfo().level;
+    document.getElementById("level-list").innerHTML = Progress.LEVELS.map(function (l, i) {
+      return '<li' + (i + 1 === cur ? ' style="color:var(--brand-2);font-weight:700"' : '') + '>' + l.name +
+        ' <span class="muted" style="font-family:var(--font-mono);font-size:.85rem">· ' + l.min + ' XP</span>' + (i + 1 === cur ? ' ← you' : '') + '</li>';
+    }).join("");
+  })();
+</script>
+</body>
+</html>
